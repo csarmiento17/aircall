@@ -7,24 +7,25 @@ import PhoneForwardedIcon from "@material-ui/icons/PhoneForwarded";
 const useStyles = makeStyles({
   card: {
     marginBottom: ".5em",
+    width: "100%"
   },
 });
 
 const ActivityFeed = ({ data }) => {
   const classes = useStyles();
-  console.log(data);
   return (
+  
+    <Grid item xs={12}>
     <Card>
-      <CardContent style={{ padding: "0" }}>
-        <Grid item container xs={12} spacing={2} className={classes.card}>
-          <Grid item xs={2}>
+      <CardContent style={{ padding: "10px" }}>
+          <Grid item xs={1}>
             {data.direction === "outbound" ? (
               <PhoneForwardedIcon />
             ) : (
               <PhoneCallbackIcon />
             )}
           </Grid>
-          <Grid item xs={7}>
+          <Grid item xs={9}>
             <Typography variant="subtitle2" display="block">
               {data.from}
             </Typography>
@@ -35,14 +36,12 @@ const ActivityFeed = ({ data }) => {
                 : `incoming call from ${data.from}`}
             </Typography>
           </Grid>
-          <Grid item xs={3}>
-            <Typography variant="subtitle2" display="block">
-              {data.created_at}
-            </Typography>
-          </Grid>
-        </Grid>
+        
+      
       </CardContent>
-    </Card>
+    </Card> 
+    </Grid>
+
   );
 };
 

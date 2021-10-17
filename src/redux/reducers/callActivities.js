@@ -18,7 +18,6 @@ export default function callsReducer(state = initialState, action) {
         loading: true,
       };
     case GET_CALLS_SUCCESS:
-      console.log("REDUCER", action);
       return {
         ...state,
         callActivities: action.payload,

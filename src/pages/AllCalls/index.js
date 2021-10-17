@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCalls } from "../../redux/actions/calls-activities";
 import Grid from "@material-ui/core/Grid";
 import ActivityFeed from "../../components/ActivityFeed/ActivityFeed";
 import Spinner from "../../components/Spinner";
 
-const Home = () => {
+const AllCalls = () => {
   const dispatch = useDispatch();
   const loading = useSelector(
     (state) => state.callsReducer.callActivities.loading
@@ -17,14 +17,17 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <Grid container spacing={3}>
+    <Grid container >
+    
       {loading ? (
         <Spinner />
       ) : (
-        callList.map((call) => <ActivityFeed key={call.id} data={call} />)
+        callList.map((data) => <ActivityFeed key={data.id} data={data} />)
       )}
     </Grid>
+
   );
 };
 
-export default Home;
+export default AllCalls;
+//<ActivityFeed key={data.id} data={data} />

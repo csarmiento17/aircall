@@ -18,7 +18,6 @@ function getAllCalls() {
 function* fetchAllCalls() {
   try {
     const data = yield call(getAllCalls);
-    console.log("DATA ", data);
     yield put({ type: "GET_CALLS_SUCCESS", payload: data });
   } catch (error) {
     yield put({ type: "GET_CALLS_FAILED", error: error });
